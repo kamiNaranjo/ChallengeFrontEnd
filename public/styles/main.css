@@ -1,8 +1,9 @@
 @import "fonts.css";
 
 body {
-  background: #ec008c;
-  color: #fff;
+  margin: 0;
+  background-image: url("../images/background-image.jpg");
+  background-size:cover;
 }
 
 h1 {
@@ -16,3 +17,37 @@ h1 {
   letter-spacing: -0.06em;
   text-align: center;
 }
+
+/****/
+nav{
+  background-color: #ec008c;
+  padding: 24px;
+  padding-left: 0;
+}
+
+nav a{
+  color: #ffffff;
+  font-family: 'HUGEAvantGardeBold';
+  text-decoration: none;
+  padding: 24px;
+}
+
+nav a:first-child {
+    padding-right: 48px;
+}
+
+#hugePage{
+  font: 10vmin/1 HUGEAvantGardeBold;
+  text-align: center;
+  color: #ffffff;
+}
+
+/*
+position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  letter-spacing: -0.06em;
+  */
