@@ -19,9 +19,9 @@ function getFileWithAjax(){
 	xmlhttp.onreadystatechange = function() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        var itemsArray = jsonToArray(xmlhttp.responseText);
-	        var listNav = '<ul><li><a href="/">HUGE</a><li>' + arrayLinksToHtmlLinks(true,itemsArray[0]) + '</ul>';
-	        nav =document.getElementById('navBar');
-			nav.innerHTML = listNav;
+	        var listNav = '<ul>' + arrayLinksToHtmlLinks(true,itemsArray[0]) + '</ul>';
+	        div =document.getElementById('itemsNav');
+			div.innerHTML = listNav;
 	    }
 	};
 	xmlhttp.open("GET", url, true);
