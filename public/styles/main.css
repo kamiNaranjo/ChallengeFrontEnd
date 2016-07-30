@@ -1,9 +1,9 @@
 @import "fonts.css";
 
-body {
-  margin:  0;
-  padding: 0;
-  overflow: hidden;
+html, body {
+  margin:               0;
+  padding:              0;
+  height:               100%;
 }
 
 nav{
@@ -18,29 +18,41 @@ div{
   padding: 0;
   font-size: 0;
 }
-@media screen and (min-width:768px) {
 
-  nav img{
-    display:              inline-block;
+nav div ul{
+  display:              block;
+  margin:               0;
+  padding:              0;
+  list-style-type:      none;
+  overflow:             hidden;
+}
+/**
+* Style for desktop view
+*/
+@media screen and (min-width:768px) {
+  /**
+  * Style for primary navigation 
+  */
+  .hamburguer{
+    display:              none;
+  }
+
+  nav > img{
     padding:              24px;
     padding-right:        48px;
+    display:              inline-block;
     float:                left;
   }
-  nav div{
+
+  nav  div{
     display:              inline;
   }
-  nav div ul{
-    margin:               0;
-    padding:              0;
-    list-style-type:      none;
-    overflow:             hidden;
 
-  }
-  nav li {
+  nav div ul li {
     float:                left;
-
   }
-  nav li a, .dropbtn{
+
+  nav div ul li a, .dropbtn{
     display:              inline-block;
     padding:              12px 24px 12px 24px;
     color:                white;
@@ -49,74 +61,130 @@ div{
     text-decoration:      none;
   }
 
-
   nav li a:hover, .dropdown:hover .dropbtn {
       background-color:   #ffffff;
       color:              #ec008c;
   }
 
+  /**
+  * Style for secondary Navigation
+  */
   .dropdown-content {
     display:              none;
     position:             absolute;
     background-color:     #ffffff;
   }
+
   .dropdown-content a {
     display:              block;
     padding:              12px;
     text-align:           left;
-    font-family:          'Galaxie';
+    font:                 16px/48px 'Galaxie';
     color:                #000000;
     font-size:            16px;
     text-decoration:      none;  
     background-color:     #ffffff;
-    position: relative; 
-     z-index: 1000;
- 
-  }
-  .dropdown-content a:hover {
-    background-color:#eee;
+    position:             relative; 
+    z-index:              1;
   }
 
   .show{
     display:              block;
     background-color:     #ffffff;
   }
-  .dropdown-content:hover  {
-    display:              block;
-    background-color:     #ffffff;
+
+  .dropdown-content a:hover {
+    background-color:     #eee;
   }
 
-  #mask{
-    opacity: 0.5;
-  }
-  #headLine {
-    display: inline;
-    position: absolute;
+  /**
+  * Style for body page 
+  */
+  #pageFlex{
     width: 100%;
-    height: 640px;
-    background-image: url(../images/background-image.jpg);
-    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  #bodyContent{
+    flex:2;
+    display: flex;
+    flex-wrap:nowrap;
+    flex-direction: column;
+    margin:               0;
+    padding:              0;
+    font-size:            0;
+    background-color:     rgba(0, 0, 0, 0.5);
+  }
+
+  #headLine {
+    display:             inline-block;
+    position:            relative;
+    background-image:    url(../images/background-image.jpg);
+    background-size:     cover;
+    width:               100%;
+    height:              640px;
+    
+  }
+
+  #headLine h1 {
+    position:           absolute;
+    top:                50%;
+    left:               50%;
+    margin:             0;
+    text-align:         center;  
+    font:               120px/132px 'HUGEAvantGardeBold';
+    color:              #ffffff;
+    transform:          translate(-50%, -50%);
   }
 
   #bodyCopy{
-    position: absolute;
-    bottom: 0;
+    flex:                2;
+    margin:              0;
+    padding:             0;
+    position:            relative;
+    text-align:          center;
+    background-color:    #ffffff;
   }
-  p{
-    color: blue;
+ 
+  #bodyCopy p{
+    position:           absolute;
+    left:               50%;
+    top:                60px;
+    display:            inline-block; 
+    margin:             0;
+    width:              968px;
+    font:               24px/36px 'Galaxie';
+    color:              #000000;
+    transform:          translate(-50%, 0);
   }
-  h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #ffffff;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    font: 120px/132px 'HUGEAvantGardeBold';
-    text-align: center;
+
+  @media screen and (max-height:700px){
+    #headLine h1{
+      font-size:        10vw;
+    }
+  }
+
+  @media screen and (max-width:968px){
+    #bodyCopy p{
+      width:            98%;
+    }
   }
 }
 
 @media screen and (max-width:767px) {
-  
+
+  nav > img{
+    display:           none;
+  } 
+
+  li.hamburger{
+    float:             left;
+    display:           inline-block;
+    padding:           20px 24px 20px 24px;
+  }
+
+
 }

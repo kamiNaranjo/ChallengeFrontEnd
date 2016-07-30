@@ -19,7 +19,9 @@ function getFileWithAjax(){
 	xmlhttp.onreadystatechange = function() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        var itemsArray = jsonToArray(xmlhttp.responseText);
-	        var listNav = '<ul>' + arrayLinksToHtmlLinks(true,itemsArray[0]) + '</ul>';
+	        var listNav = '<ul>' + arrayLinksToHtmlLinks(true,itemsArray[0]) 
+	        + '<li class="hamburger"><a href="javascript:void(0);"><img src="/images/hamburger.png" alt="Hamburger menu" height="20" width="24"></a></li>'
+	        +'</ul>';
 	        div =document.getElementById('itemsNav');
 			div.innerHTML = listNav;
 	    }
@@ -77,7 +79,7 @@ function arrayLinksToHtmlLinks(isFather, itemsArray) {
     			}
     		}else{
     			listItems += '<li class="dropdown">';
-    			listItems += '<a href="#" class="dropbtn" onclick="showSubItems(this)">' + labelItem + '</a>';
+    			listItems += '<a href="javascript:void(0);" class="dropbtn" onclick="showSubItems(this)">' + labelItem + '</a>';
     			listItems += '<div class="dropdown-content">';
 	    		listItems += subItems;
 	    		listItems += '</div>';
@@ -100,13 +102,16 @@ function resizeNav() {
 
 function showSubItems(elementClicked) {
 	hideSubMenu();
-	document.getElementById('bodyContent').style.opacity="rgba(0, 0, 0, 0.5)";
+	document.getElementById('headLine').style.zIndex = "-1";
+	document.getElementById('bodyCopy').style.zIndex = "-1";
     elementClicked.nextSibling.classList.toggle("show");
 }
 
 function closeSubItem(event) {
   	if (!event.target.matches('.dropbtn')) {
 	    hideSubMenu();
+	    document.getElementById('headLine').style.zIndex = "0";
+		document.getElementById('bodyCopy').style.zIndex = "0";
   	}
 }
 
