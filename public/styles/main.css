@@ -2,137 +2,121 @@
 
 body {
   margin:  0;
-  background: url(../images/background-image.jpg) no-repeat center center fixed; 
-  background-size: cover;
-}
-/*
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  font: 20vmin/1 HUGEAvantGardeBold;
-  letter-spacing: -0.06em;
-  text-align: center;
+  padding: 0;
+  overflow: hidden;
 }
 
-/**
-* Setting style for Desktop, Primary Navigation nav bar
-*/
 nav{
   margin:               0;
   padding:              0; 
-  font-size:            0;
   background-color:     #ec008c;
-}
-nav img{
-  display:              inline-block;
-  padding:              24px;
-  padding-right:        48px;
-  float:                left;
-}
-nav div{
-  display:              inline-block;
-}
-nav ul{
-  margin:               0;
-  padding:              0;
-  list-style-type:      none;
   overflow:             hidden;
 }
-nav li {
-  float:                left;
+
+div{
+  margin: 0;
+  padding: 0;
+  font-size: 0;
 }
-nav li a, .dropbtn{
-  display:              inline-block;
-  padding:              24px;
-  color:                white;
-  text-align:           center;
-  font-family:          'HUGEAvantGardeBold';
-  font-size:            21px;
-  text-decoration:      none;
+@media screen and (min-width:768px) {
+
+  nav img{
+    display:              inline-block;
+    padding:              24px;
+    padding-right:        48px;
+    float:                left;
+  }
+  nav div{
+    display:              inline;
+  }
+  nav div ul{
+    margin:               0;
+    padding:              0;
+    list-style-type:      none;
+    overflow:             hidden;
+
+  }
+  nav li {
+    float:                left;
+
+  }
+  nav li a, .dropbtn{
+    display:              inline-block;
+    padding:              12px 24px 12px 24px;
+    color:                white;
+    text-align:           center;
+    font:                 21px/48px 'HUGEAvantGardeBold';
+    text-decoration:      none;
+  }
+
+
+  nav li a:hover, .dropdown:hover .dropbtn {
+      background-color:   #ffffff;
+      color:              #ec008c;
+  }
+
+  .dropdown-content {
+    display:              none;
+    position:             absolute;
+    background-color:     #ffffff;
+  }
+  .dropdown-content a {
+    display:              block;
+    padding:              12px;
+    text-align:           left;
+    font-family:          'Galaxie';
+    color:                #000000;
+    font-size:            16px;
+    text-decoration:      none;  
+    background-color:     #ffffff;
+    position: relative; 
+     z-index: 1000;
+ 
+  }
+  .dropdown-content a:hover {
+    background-color:#eee;
+  }
+
+  .show{
+    display:              block;
+    background-color:     #ffffff;
+  }
+  .dropdown-content:hover  {
+    display:              block;
+    background-color:     #ffffff;
+  }
+
+  #mask{
+    opacity: 0.5;
+  }
+  #headLine {
+    display: inline;
+    position: absolute;
+    width: 100%;
+    height: 640px;
+    background-image: url(../images/background-image.jpg);
+    background-size: cover;
+  }
+
+  #bodyCopy{
+    position: absolute;
+    bottom: 0;
+  }
+  p{
+    color: blue;
+  }
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ffffff;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font: 120px/132px 'HUGEAvantGardeBold';
+    text-align: center;
+  }
 }
-nav li a:hover, .dropdown:hover .dropbtn {
-    background-color:   #ffffff;
-    color:              #ec008c;
+
+@media screen and (max-width:767px) {
+  
 }
-.dropdown-content {
-  display:              none;
-  position:             absolute;
-  background-color:     #ffffff;
-}
-.dropdown-content a {
-  display:              block;
-  padding:              12px;
-  text-align:           left;
-  font-family:          'Galaxie';
-  color:                #000000;
-  font-size:            16px;
-  text-decoration:      none;   
-}
-.dropdown-content a:hover {
-  background-color:     #eee;
-}
-.dropdown:hover .dropdown-content {
-  display:              block;
-  background-color:     #ffffff;
-}
-.dropdown-content:hover  {
-  display:              block;
-  background-color:     #ffffff;
-}
-
-/**
-* Setting style for Desktop
-*/
-footer{
-  position:             absolute;
-  right:                0;
-  bottom:               0;
-  left:                 0;
-  padding-top:          60px;
-  background-color:     #ffffff;
-  text-align:           center;
-}
-
-#bodyCopy{
-  font-family:          'Galaxie';
-  color:                #000000;
-  font-size:            24px;
-}
-
-#Headline{
-  font-family:          'HUGEAvantGardeBold';
-  font-size:            120px;
-  color:                #ffffff;
-  text-align:           center;
-  position:             absolute;
-  top:                  25%;
-  left:                 15%;
-  right:                15%
-}
-
-
-/*
-
-
-
-*/
-/*
-
-
-
-
-
-
-
-
-
-
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-
-*/

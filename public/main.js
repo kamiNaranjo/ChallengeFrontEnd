@@ -77,7 +77,7 @@ function arrayLinksToHtmlLinks(isFather, itemsArray) {
     			}
     		}else{
     			listItems += '<li class="dropdown">';
-    			listItems += '<a href="'+ urlItem + '" class="dropbtn">' + labelItem + '</a>';
+    			listItems += '<a href="#" class="dropbtn" onclick="showSubItems(this)">' + labelItem + '</a>';
     			listItems += '<div class="dropdown-content">';
 	    		listItems += subItems;
 	    		listItems += '</div>';
@@ -88,26 +88,34 @@ function arrayLinksToHtmlLinks(isFather, itemsArray) {
     return listItems;
 }
 
-function getSubItems(itemsArray){
-	var listItems = "";
-    for(var i = 0; i < itemsArray.length; i++) {
-    	var urlItem = "";
-    	var labelItem = "";
-    	var items = itemsArray[i];
-    	if(items != null){
-    		for(var key in items){
-    		var value = items[key];
-    		switch(key){
-    			case 'url':
-    				urlItem = value;
-    				break;
-    			case 'label':
-    				labelItem = value;
-    				break;
-    			}
-    		}
-    		listItems += '<li><a href="'+ urlItem + '">' + labelItem + '</a></li>\n';
-    	}
+function resizeNav() {
+    var x = document.getElementById("navBar");
+    if (x.className === "topNav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topNav";
     }
-    return listItems;
-};
+}
+
+
+function showSubItems(elementClicked) {
+	hideSubMenu();
+	document.getElementById('bodyContent').style.opacity="rgba(0, 0, 0, 0.5)";
+    elementClicked.nextSibling.classList.toggle("show");
+}
+
+function closeSubItem(event) {
+  	if (!event.target.matches('.dropbtn')) {
+	    hideSubMenu();
+  	}
+}
+
+function hideSubMenu(){
+	var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      	var openDropdown = dropdowns[d];
+      	if (openDropdown.classList.contains('show')) {
+        	openDropdown.classList.remove('show');
+      	}
+	}
+}

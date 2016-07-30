@@ -6,18 +6,22 @@
 	 	<script src="main.js"></script>
 	</head>
 	<body>
-		<nav id = "navBar">
+		<nav class="topNav" id="navBar">
 			<img src="/images/Huge-white.png" alt="Huge" height="24" width="60">
 			<div id= "itemsNav">
 				<script>getFileWithAjax();</script>
 			</div>
 		</nav>
-		<!--
-		<section id ="Headline">
-			Get paid for giving a shit.
-		</section>
-		<footer>
-			<p id="bodyCopy"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p>
-		</footer>-->
+
+		<div id="bodyContent">
+			<div id="headLine"> 
+				<h1>Get paid for giving a shit.</h1>
+			</div>
+			<div id="bodyCopy">
+			<p style="color=blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<p>
+			</div>
+		</div>
+		<script>window.onclick = function(event){
+			closeSubItem(event);}</script>
 	</body>
 </html>
