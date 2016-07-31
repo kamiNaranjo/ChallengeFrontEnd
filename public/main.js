@@ -103,8 +103,7 @@ function showMobileMenu() {
 function showSubItems(elementClicked) {
 	hideSubMenu();
 	document.getElementById('headLineDesktop').style.zIndex = "-1";
-	document.getElementById('bodyCopyDesktop').style.zIndex = "-1";
-	document.getElementById('bodyCopyMobile').style.zIndex = "-1";
+	document.getElementById('bodyCopy').style.zIndex = "-1";
     elementClicked.nextSibling.classList.toggle("show");
 }
 
@@ -112,9 +111,7 @@ function closeSubItem(event) {
   	if (!event.target.matches('.dropbtn')) {
 	    hideSubMenu();
 	    document.getElementById('headLineDesktop').style.zIndex = "0";
-		document.getElementById('bodyCopyDesktop').style.zIndex = "0";
-		document.getElementById('bodyCopyMobile').style.zIndex = "0";
-
+		document.getElementById('bodyCopy').style.zIndex = "0";
   	}
 }
 
