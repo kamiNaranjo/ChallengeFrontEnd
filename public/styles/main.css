@@ -26,6 +26,30 @@ nav div ul{
   list-style-type:      none;
   overflow:             hidden;
 }
+
+nav div ul li {
+  float:                left;
+}
+
+#pageFlex{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#bodyContent{
+  flex:2;
+  display: flex;
+  flex-wrap:nowrap;
+  flex-direction: column;
+  margin:               0;
+  padding:              0;
+  font-size:            0;
+  background-color:     rgba(0, 0, 0, 0.5);
+}
+
 /**
 * Style for desktop view
 */
@@ -33,7 +57,8 @@ nav div ul{
   /**
   * Style for primary navigation 
   */
-  .hamburguer{
+
+  li.hamburger, .Mobile{
     display:              none;
   }
 
@@ -46,10 +71,6 @@ nav div ul{
 
   nav  div{
     display:              inline;
-  }
-
-  nav div ul li {
-    float:                left;
   }
 
   nav div ul li a, .dropbtn{
@@ -100,36 +121,17 @@ nav div ul{
   /**
   * Style for body page 
   */
-  #pageFlex{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  
-  #bodyContent{
-    flex:2;
-    display: flex;
-    flex-wrap:nowrap;
-    flex-direction: column;
-    margin:               0;
-    padding:              0;
-    font-size:            0;
-    background-color:     rgba(0, 0, 0, 0.5);
-  }
-
-  #headLine {
+  #headLineDesktop {
     display:             inline-block;
     position:            relative;
     background-image:    url(../images/background-image.jpg);
     background-size:     cover;
     width:               100%;
     height:              640px;
-    
+    overflow:            auto;
   }
 
-  #headLine h1 {
+  #headLineDesktop h1 {
     position:           absolute;
     top:                50%;
     left:               50%;
@@ -140,7 +142,7 @@ nav div ul{
     transform:          translate(-50%, -50%);
   }
 
-  #bodyCopy{
+  #bodyCopyDesktop{
     flex:                2;
     margin:              0;
     padding:             0;
@@ -149,7 +151,7 @@ nav div ul{
     background-color:    #ffffff;
   }
  
-  #bodyCopy p{
+  #bodyCopyDesktop p{
     position:           absolute;
     left:               50%;
     top:                60px;
@@ -176,7 +178,8 @@ nav div ul{
 
 @media screen and (max-width:767px) {
 
-  nav > img{
+
+  nav > img , .Desktop{
     display:           none;
   } 
 
@@ -186,5 +189,95 @@ nav div ul{
     padding:           20px 24px 20px 24px;
   }
 
+  #headLineMobile {
+    display:             inline-block;
+    position:            relative;
+    background-image:    url(../images/background-image.jpg);
+    background-size:     cover;
+    width:               100%;
+    height:              240px;
+  }
 
+  #headLineMobile + h1 {
+    position:           relative;
+    padding:            50px 24px 50px 24px;
+    margin:             0;
+    text-align:         left;  
+    font:               44px/48px 'HUGEAvantGardeBold';
+    color:              #000000;
+    background-color:   #ffffff;
+  }
+
+  #bodyCopyMobile{
+    flex:                2;
+    margin:              0;
+    padding:             0;
+    position:            relative;
+    text-align:          center;
+    background-color:    #ffffff;
+  }
+
+  #bodyCopyMobile p{
+    position:           absolute;
+    display:            block; 
+    margin:             0;
+    padding:            0 24px 0 24px;
+    font:               14px/24px 'Galaxie';
+    color:              #000000;
+    text-align:         justify;
+  }
+
+  nav.topNavnavMobile > img{
+    position:             relative;
+    padding:              12px 24px 12px 24px;
+    display:              inline-block;;
+    float:                none;
+  }
+  nav.topNavnavMobile{
+    height: 100%;
+    
+  }
+  nav.topNavnavMobile div ul{
+    position:             relative;
+    background-color:     #ffffff;
+    width: 70%;
+    height: 100%;
+  }
+
+  /**
+  * Style for primary navigation 
+  */
+
+  nav.topNavnavMobile div ul li.hamburger{
+    display:              none;
+  }
+  nav.topNavnavMobile div ul li{
+    background-color:     #ffffff;
+    float:                none;
+    width: 70%;
+    display: inline-block;
+  }
+
+  nav.topNavnavMobile div ul li a, nav.topNavnavMobile .dropbtn{
+    position:             relative;
+    text-align:           left;
+    padding:              12px 0 0 24px;
+    color:                #000000;
+    font:                 21px/48px 'HUGEAvantGardeBold';
+    text-decoration:      none;
+  }
+
+  /*nav li a:hover, .dropdown:hover .dropbtn {
+      background-color:   #ffffff;
+      color:              #ec008c;
+  }*/
+
+    /**
+  * Style for secondary Navigation
+  */
+  .dropdown-content {
+    display:              none;
+    position:             absolute;
+    background-color:     #ffffff;
+  }
 }

@@ -20,7 +20,7 @@ function getFileWithAjax(){
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        var itemsArray = jsonToArray(xmlhttp.responseText);
 	        var listNav = '<ul>' + arrayLinksToHtmlLinks(true,itemsArray[0]) 
-	        + '<li class="hamburger"><a href="javascript:void(0);"><img src="/images/hamburger.png" alt="Hamburger menu" height="20" width="24"></a></li>'
+	        + '<li class="hamburger"><a href="javascript:void(0);"><img src="/images/hamburger.png" alt="Hamburger menu" height="20" width="24" onclick="showMobileMenu();"></a></li>'
 	        +'</ul>';
 	        div =document.getElementById('itemsNav');
 			div.innerHTML = listNav;
@@ -73,9 +73,9 @@ function arrayLinksToHtmlLinks(isFather, itemsArray) {
     		}
     		if(subItems == ""){
     			if(isFather){
-    				listItems += '<li><a href="'+ urlItem + '">' + labelItem + '</a></li>'
+    				listItems += '<li><a target="_blank" href="'+ urlItem + '">' + labelItem + '</a></li>'
     			}else{
-    				listItems += '<a href="'+ urlItem + '">' + labelItem + '</a>';
+    				listItems += '<a target="_blank" href="'+ urlItem + '">' + labelItem + '</a>';
     			}
     		}else{
     			listItems += '<li class="dropdown">';
@@ -90,10 +90,10 @@ function arrayLinksToHtmlLinks(isFather, itemsArray) {
     return listItems;
 }
 
-function resizeNav() {
+function showMobileMenu() {
     var x = document.getElementById("navBar");
     if (x.className === "topNav") {
-        x.className += " responsive";
+        x.className += "navMobile";
     } else {
         x.className = "topNav";
     }
@@ -102,16 +102,19 @@ function resizeNav() {
 
 function showSubItems(elementClicked) {
 	hideSubMenu();
-	document.getElementById('headLine').style.zIndex = "-1";
-	document.getElementById('bodyCopy').style.zIndex = "-1";
+	document.getElementById('headLineDesktop').style.zIndex = "-1";
+	document.getElementById('bodyCopyDesktop').style.zIndex = "-1";
+	document.getElementById('bodyCopyMobile').style.zIndex = "-1";
     elementClicked.nextSibling.classList.toggle("show");
 }
 
 function closeSubItem(event) {
   	if (!event.target.matches('.dropbtn')) {
 	    hideSubMenu();
-	    document.getElementById('headLine').style.zIndex = "0";
-		document.getElementById('bodyCopy').style.zIndex = "0";
+	    document.getElementById('headLineDesktop').style.zIndex = "0";
+		document.getElementById('bodyCopyDesktop').style.zIndex = "0";
+		document.getElementById('bodyCopyMobile').style.zIndex = "0";
+
   	}
 }
 
