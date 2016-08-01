@@ -4,20 +4,21 @@
 	  	<title>HUGE NavExercise</title>
 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
 	 	<link rel="stylesheet" href="/styles/main.css">
-	 	<script src="/scripts/main.js"></script>
+	 	<script src="/scripts/navBar.js"></script>
+	 	<script src="/scripts/responseManager.js"></script>
 	</head>
 	<body>
 		<div id="pageFlex">
 			<!-- Navigation Bar -->
 			<nav class="topNav" id="navBar">
 				<img src="/images/Huge-white.png" id="logo" class="logoHuge"alt="Huge" >
-				<a id="close" href="javascript:void(0);"><img src="/images/close.png" alt="close" height="20" width="24" onclick="showMobileMenu();"></a>
+				<a id="close" class="Mobile" href="javascript:void(0);"><img src="/images/close.png" alt="close" height="20" width="24" onclick="showMobileMenu();"></a>
 				<div id= "itemsNav">
 					<script>getNavList();</script>
 				</div>
 			</nav>
 			<!--Body content-->
-			<div id="bodyContent">
+			<div id="bodyContent" onclick="closeSubItem(event);">
 				<div id="headLineMobile" class="Mobile">	
 				</div>
 				<h1 id="h1HeadLine"class="Mobile">Get paid for giving a shit.</h1>
@@ -32,7 +33,7 @@
 				</div>
 			</div>
 		</div>
-		
-		<script>window.onclick = function(event){closeSubItem(event);}</script>
+
+		<script>window.onresize = function(){ location.reload(); }</script>
 	</body>
 </html>

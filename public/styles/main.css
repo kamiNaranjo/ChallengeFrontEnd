@@ -1,21 +1,21 @@
 @import "fonts.css";
 
 html, body, div{
-  margin:               0;
-  padding:              0;
+  margin:               0px;
+  padding:              0px;
 }
 
 nav{
-  margin:               0;
-  padding:              0; 
-  font-size: 0;
+  margin:               0px;
+  padding:              0px; 
+  font-size:            0px;
   background-color:     #ec008c;
 }
 
 nav div ul{
   display:              block;
-  margin:               0;
-  padding:              0;
+  margin:               0px;
+  padding:              0px;
   list-style-type:      none;
   overflow:             hidden;
 }
@@ -24,29 +24,35 @@ nav div ul{
 * Style for desktop view
 */
 @media screen and (min-width:768px) {
-  img.logoHuge{
-    width:        60px;
-    height:       24px;
-  }
-
-  #copyRight{
+  /*Hidden all elements that only are use by mobile*/
+  .Mobile{
     display:              none;
   }
 
+  /*Style for main view*/
+  img.logoHuge{
+    width:                60px;
+    height:               24px;
+    padding:              24px;
+    padding-right:        48px;
+    display:              inline-block;
+    float:                left;
+  }
+
   #pageFlex{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    width:                100%;
+    height:               100%;
+    display:              flex;
+    flex-direction:       column;
   }
 
   #bodyContent{
-    flex:2;
-    display: flex;
-    flex-wrap:nowrap;
-    flex-direction: column;
-    margin:               0;
-    padding:              0;
+    flex:                 2;
+    display:              flex;
+    flex-wrap:            nowrap;
+    flex-direction:       column;
+    margin:               0px;
+    padding:              0px;
     background-color:     rgba(0, 0, 0, 0.5);
   }
 
@@ -68,21 +74,6 @@ nav div ul{
   * Style for primary navigation 
   */
 
-  li.hamburger, .Mobile, #close{
-    display:              none;
-  }
-
-  nav > img{
-    padding:              24px;
-    padding-right:        48px;
-    display:              inline-block;
-    float:                left;
-  }
-
-  nav  div{
-    display:              inline;
-  }
-
   nav > div > ul > li {
     float:                left;
   }
@@ -97,8 +88,8 @@ nav div ul{
   }
 
   nav li a:hover, .dropdown:hover .dropbtn {
-      background-color:   #ffffff;
-      color:              #ec008c;
+    background-color:     #ffffff;
+    color:                #ec008c;
   }
 
   /**
@@ -145,7 +136,7 @@ nav div ul{
     position:           absolute;
     top:                50%;
     left:               50%;
-    margin:             0;
+    margin:             0px;
     text-align:         center;  
     font:               120px/132px 'HUGEAvantGardeBold';
     color:              #ffffff;
@@ -157,14 +148,15 @@ nav div ul{
     left:               50%;
     top:                60px;
     display:            inline-block; 
-    margin:             0;
+    margin:             0px;
     width:              968px;
     font:               24px/36px 'Galaxie';
-    text-align:          center;
+    text-align:         center;
     color:              #000000;
     transform:          translate(-50%, 0);
   }
 
+/*Style for resize font's body when page size is small*/
   @media screen and (max-height:700px){
     #headLineDesktop h1{
       font-size:        10vw;
@@ -178,45 +170,49 @@ nav div ul{
   }
 }
 
+/**
+* Style for mobile view
+*/
 @media screen and (max-width:767px) {
-
-  nav > img , .Desktop, #close{
-    display:           none;
+/*Hidden all elements that only are use by desktop and for mobile menu dropdown*/
+  .Desktop, #logo, #close{
+    display:            none;
   } 
 
-  .topNavnavMobile #itemsNav h3{
-    clear:                both;
-    position:             relative;
-    display:              block;
-    bottom:               0;
-    font:                 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding:              12px 24px 12px 24px;
-    margin:               0;
-    background-color:     #ffffff;
-  }
-
+  /*Style for main view*/
   img.logoHuge{
-    width:        50px;
-    height:       20px;
+    width:              50px;
+    height:             20px;
   }
 
   nav.topNav ul li:not(.hamburger){
-    display:          none;
-    position:         relative;
+    display:            none;
+    position:           relative;
   }
 
   li.hamburger a img{
-    float:             left;
-    display:           inline-block;
-    padding:           20px 24px 20px 24px;
+    float:              left;
+    display:            inline-block;
+    padding:            20px 24px 20px 24px;
   }
 
+  #itemsNav{
+    width:              60px;
+    transition:         0.5s;
+  }
+
+  #bodyContent{
+    transition:         0.5s;
+  }
+  /**
+  * Style for body page 
+  */
   #headLineMobile {
-    display:             inline-block;
-    background-image:    url(../images/background-image.jpg);
-    background-size:     cover;
-    width:               100%;
-    height:              240px;
+    display:            inline-block;
+    background-image:   url(../images/background-image.jpg);
+    background-size:    cover;
+    width:              100%;
+    height:             240px;
   }
 
   #headLineMobile + h1 {
@@ -229,7 +225,7 @@ nav div ul{
 
   p.Mobile{
     display:            block; 
-    margin:             0;
+    margin:             0px;
     padding:            0 24px 10px 24px;
     font:               14px/24px 'Galaxie';
     color:              #000000;
@@ -241,120 +237,125 @@ nav div ul{
   * Style for primary navigation 
   */
 
+  div > ul > li:not(.hamburger):not(.dropdown):not(.dropdown-active) > a {
+    background-color:   #ffffff;
+  }
+
+  div > ul > li:not(.hamburger) >a, .dropbtn a{
+    display:            block;
+    padding:            12px 0 12px 24px;
+    font:               21px/48px 'HUGEAvantGardeBold';
+    text-align:         left;
+    color:              #000000;
+    text-decoration:    none;
+    transition:         width 0.2s linear 0.1s;
+  }
+
+  li.dropdown{
+    background-image: url(/images/downArrow.png);
+    background-size:    40px 18px;
+    background-repeat:  no-repeat;
+    background-position:right center;
+    background-color:   #ffffff;
+  }
+
+  li.dropdown-active{
+    background-image:   url(/images/upArrow.png);
+    background-size:    40px 35px;
+    background-repeat:  no-repeat;
+    background-position:right top;
+    background-color:   #ffffff;
+  }
+
   nav > div > ul > li:hover, .dropdown:hover {
     background-color:   #eee;
   }
 
-  
-  li.dropdown{
-    background-image: url(/images/downArrow.png);
-    background-size: 40px 18px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    z-index: 10;
-  }
-
-  li.dropdown-active{
-    background-image: url(/images/upArrow.png);
-    background-size: 40px 35px;
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-color: #ffffff;
-  }
-
   li.dropdown-active:hover{
-    background-color: #ffffff;
+    background-color:   #ffffff;
   }
 
-  div > ul > li:not(.hamburger) >a, .dropbtn a{
-    display:              block;
-    padding:              12px 0 12px 24px;
-    font:                 21px/48px 'HUGEAvantGardeBold';
-    text-align:           left;
-    color:                #000000;
-    text-decoration:      none;
-    transition:           0.2s;
-  }
   /**
   * Style for secondary navigation
   */
   .dropdown-content > li> a {
-    display:              block;
-    padding:              12px 0 12px 24px;
-    text-align:           left;
-    font:                 16px/48px 'Galaxie';
-    color:                #000000;
-    font-size:            16px;
-    text-decoration:      none;  
-    background-color:     #ffffff;
+    display:            block;
+    padding:            12px 0 12px 24px;
+    text-align:         left;
+    font:               16px/48px 'Galaxie';
+    color:              #000000;
+    font-size:          16px;
+    text-decoration:    none;  
+    background-color:   #ffffff;
   }
 
   .dropdown-content > li{ 
-    background-color:     #ffffff;
+    background-color:   #ffffff;
   }
 
   .dropdown-content{
-    height:               0;
-    display:              none;
-    overflow:             hidden;
+    height:             0px;
+    display:            none;
+    overflow:           hidden;
   }
 
   .dropdown-content a:hover {
-    background-color:     #eee;
-    color:                #ec008c;          
-  }
-
-  .show{
-    height: auto;
-    display: block;
-    transition:           0.2s;
-
+    background-color:   #eee;
+    color:              #ec008c;          
   }
 
   /**
   * Menu activitator style
   */
 
-  #itemsNav{
-    width:                60px;
-    transition:           0.5s;
-  }
-
-  #bodyContent{
-    transition:           0.5s;
-  }
-
   nav.topNavnavMobile{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    height:             100%;
+    display:            flex;
+    flex-direction:     column;
   }
 
-  nav.topNavnavMobile > img{
+  nav.topNavnavMobile #itemsNav {
+    position:           absolute;
+    background-color:   #ffffff;
+    height:             100%;
+  }
+
+  nav.topNavnavMobile li.hamburger{
+    display:            none;
+    transition:         0,5s
+  }
+
+  nav.topNavnavMobile > #logo{
     padding:              20px 24px 20px 24px;
     display:              inline;
     float:                none;
     transition:           0.5s;
   }
 
+  .show{
+    height:             auto;
+    display:            block;
+    transition:         0.2s;
+  }
+
+  .topNavnavMobile #itemsNav h3{
+    position:           relative;
+    display:            block;
+    bottom:             0;
+    font:               12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding:            12px 24px 12px 24px;
+    margin:             0px;
+    background-color:   #ffffff;
+    height: 100%;
+  }
+
   nav.topNavnavMobile  #close{
-    position:             absolute;
-    display:              inline;
-    padding:              20px 12px 20px 12px;
-    margin:               0;
-    top:                  0;
-    right:                0;
-    transition:           0.5s;
-  }
-
-  nav.topNavnavMobile div {
-    position: absolute;
-    background-color: #ffffff;
-    height:  100%;
-  }
-
-  nav.topNavnavMobile li.hamburger{
-    display:              none;
-    transition:           0,5s
+    position:           absolute;
+    display:            inline-block;
+    padding:            20px 12px 20px 12px;
+    margin:             0px;
+    top:                0px;
+    right:              0px;
+    transition:         0.5s ease-in-out;
   }
 }
