@@ -37,7 +37,7 @@ $ npm install -g gulp
 ```
 
 ```sh
-$ git clone [git-repo-url] ChallengeFrontEnd
+$ git clone https://github.com/kamiNaranjo/ChallengeFrontEnd.git
 $ cd ChallengeFrontEnd
 $ npm install 
 ```
