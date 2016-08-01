@@ -1,16 +1,15 @@
 @import "fonts.css";
 
-html, body {
+html, body, div{
   margin:               0;
   padding:              0;
-  height:               100%;
 }
 
 nav{
   margin:               0;
   padding:              0; 
+  font-size: 0;
   background-color:     #ec008c;
-  overflow:             hidden;
 }
 
 nav div ul{
@@ -21,40 +20,50 @@ nav div ul{
   overflow:             hidden;
 }
 
-#pageFlex{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-#bodyContent{
-  flex:2;
-  display: flex;
-  flex-wrap:nowrap;
-  flex-direction: column;
-  margin:               0;
-  padding:              0;
-  background-color:     rgba(0, 0, 0, 0.5);
-}
-
-#bodyCopy{
-  flex:                2;
-  margin:              0;
-  padding:             0;
-  position:            relative;
-  background-color:    #ffffff;
-}
-
-.dropdown-content {
-  display:              none;
-  position:             absolute;
-  background-color:     #ffffff;
-}
 /**
 * Style for desktop view
 */
 @media screen and (min-width:768px) {
+  img.logoHuge{
+    width:        60px;
+    height:       24px;
+  }
+
+  #copyRight{
+    display:              none;
+  }
+
+  #pageFlex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #bodyContent{
+    flex:2;
+    display: flex;
+    flex-wrap:nowrap;
+    flex-direction: column;
+    margin:               0;
+    padding:              0;
+    background-color:     rgba(0, 0, 0, 0.5);
+  }
+
+  #bodyCopy{
+    flex:                2;
+    margin:              0;
+    padding:             0;
+    position:            relative;
+    background-color:    #ffffff;
+  }
+
+  .dropdown-content {
+    display:              none;
+    position:             absolute;
+    background-color:     #ffffff;
+  }
+
   /**
   * Style for primary navigation 
   */
@@ -74,7 +83,7 @@ nav div ul{
     display:              inline;
   }
 
-  nav div ul li {
+  nav > div > ul > li {
     float:                left;
   }
 
@@ -110,6 +119,7 @@ nav div ul{
   }
 
   .show{
+    clear:                both;
     display:              block;
     background-color:     #ffffff;
   }
@@ -169,16 +179,30 @@ nav div ul{
 }
 
 @media screen and (max-width:767px) {
-  * {
-    position: relative;
-  }
 
   nav > img , .Desktop, #close{
     display:           none;
   } 
 
+  .topNavnavMobile #itemsNav h3{
+    clear:                both;
+    position:             relative;
+    display:              block;
+    bottom:               0;
+    font:                 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding:              12px 24px 12px 24px;
+    margin:               0;
+    background-color:     #ffffff;
+  }
+
+  img.logoHuge{
+    width:        50px;
+    height:       20px;
+  }
+
   nav.topNav ul li:not(.hamburger){
-    display: none;
+    display:          none;
+    position:         relative;
   }
 
   li.hamburger a img{
@@ -201,11 +225,6 @@ nav div ul{
     text-align:         left;  
     font:               44px/48px 'HUGEAvantGardeBold';
     color:              #000000;
-    background-color:   #ffffff;
-  }
-
-  #bodyCopy{
-    overflow:           auto;
   }
 
   p.Mobile{
@@ -215,190 +234,127 @@ nav div ul{
     font:               14px/24px 'Galaxie';
     color:              #000000;
     text-align:         justify;
+    overflow:           auto;
   }
   
   /**
   * Style for primary navigation 
   */
 
-  /**
-  * General Style
-  */
+  nav > div > ul > li:hover, .dropdown:hover {
+    background-color:   #eee;
+  }
+
   
-  nav div ul li:not(.hamburger) a, .dropbtn{
+  li.dropdown{
+    background-image: url(/images/downArrow.png);
+    background-size: 40px 18px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    z-index: 10;
+  }
+
+  li.dropdown-active{
+    background-image: url(/images/upArrow.png);
+    background-size: 40px 35px;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: #ffffff;
+  }
+
+  li.dropdown-active:hover{
+    background-color: #ffffff;
+  }
+
+  div > ul > li:not(.hamburger) >a, .dropbtn a{
     display:              block;
     padding:              12px 0 12px 24px;
     font:                 21px/48px 'HUGEAvantGardeBold';
-    text-align:           center;
+    text-align:           left;
     color:                #000000;
     text-decoration:      none;
-    transition:           0.5s;
-    background:           #ffffff;
+    transition:           0.2s;
+  }
+  /**
+  * Style for secondary navigation
+  */
+  .dropdown-content > li> a {
+    display:              block;
+    padding:              12px 0 12px 24px;
+    text-align:           left;
+    font:                 16px/48px 'Galaxie';
+    color:                #000000;
+    font-size:            16px;
+    text-decoration:      none;  
+    background-color:     #ffffff;
+  }
+
+  .dropdown-content > li{ 
+    background-color:     #ffffff;
+  }
+
+  .dropdown-content{
+    height:               0;
+    display:              none;
+    overflow:             hidden;
+  }
+
+  .dropdown-content a:hover {
+    background-color:     #eee;
+    color:                #ec008c;          
+  }
+
+  .show{
+    height: auto;
+    display: block;
+    transition:           0.2s;
+
   }
 
   /**
   * Menu activitator style
   */
 
+  #itemsNav{
+    width:                60px;
+    transition:           0.5s;
+  }
+
+  #bodyContent{
+    transition:           0.5s;
+  }
+
+  nav.topNavnavMobile{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   nav.topNavnavMobile > img{
-    padding:              12px 24px 12px 24px;
-    display:              inline-block;;
+    padding:              20px 24px 20px 24px;
+    display:              inline;
     float:                none;
     transition:           0.5s;
   }
 
   nav.topNavnavMobile  #close{
-    display:              inline-block;
+    position:             absolute;
+    display:              inline;
     padding:              20px 12px 20px 12px;
+    margin:               0;
     top:                  0;
     right:                0;
     transition:           0.5s;
+  }
+
+  nav.topNavnavMobile div {
+    position: absolute;
+    background-color: #ffffff;
+    height:  100%;
   }
 
   nav.topNavnavMobile li.hamburger{
     display:              none;
     transition:           0,5s
   }
-
-  nav div ul li div{
-    clear:    both;
-    height: 0;
-    overflow: hidden;
-  }
-
-  nav.topNavnavMobile div ul li:hover div{
-    height: auto;
-  }
-
-  .show{
-    background-color:     #ffffff;
-    height:               auto;
-    display:              block;
-  }
-
-/*
-  nav.topNavnavMobile{
-    height:               100%;
-  }
-  nav.topNavnavMobile div ul{
-    width:                70%;
-    height:               100%;
-    display:              block;
-  }
-
-  nav.topNavnavMobile ul li:not(.hamburger){
-    clear:                both;
-    display:              block;
-  }
-
-
-
-
-  nav.topNavnavMobile div ul li a, nav.topNavnavMobile .dropbtn{
-    text-align:           left;
-    display:              block;
-    padding:              12px 0 12px 24px;
-    color:                #000000;
-    font:                 21px/48px 'HUGEAvantGardeBold';
-    text-decoration:      none;
-  }
-
-  nav.topNavnavMobile div ul li a:hover, .dropdown:hover .dropbtn {
-      background-color:   #eee;
-  }
-
-  nav.topNavnavMobile div {
-    height:  100%;
-    width:    70%;
-  }
-
-  /**
-  * Secondary navigation
-  *//*
-  .dropdown-content{
-    clear:  both;
-    height: 0;
-    overflow: hidden;
-  }
-  .dropdown-content a{
-    background-color:     #eee;
-  }
-
-  .dropdown-content a:hover {
-    background-color:     #eee;
-  }
-  .show{
-    background-color:     #ffffff;
-    height:               auto;
-    display:              inline-block;
-  }
-
-
-/*
-
-
-
-
-
-
-
-
-
-  #bodyCopy p.desktop{
-    position:           absolute;
-    display:            block; 
-    margin:             0;
-    padding:            0 24px 0 24px;
-    font:               14px/24px 'Galaxie';
-    color:              #000000;
-    text-align:         justify;
-  }
-
-  
-  nav.topNavnavMobile{
-    height: 100%;
-    z-index: 0;
-  }
-
-
-
-  /**
-  * Style for primary navigation 
-  *//*
-
-
-  nav.topNavnavMobile div ul li{
-    background-color:     #ffffff;
-    float:                left;
-    display:table-cell;
-  }
-
-  nav.topNavnavMobile div ul li a, nav.topNavnavMobile .dropbtn{
-    position:             relative;
-    display:              inline;
-    text-align:           left;
-    padding:              12px 0 12px 24px;
-    color:                #000000;
-    font:                 21px/48px 'HUGEAvantGardeBold';
-    text-decoration:      none;
-  }
-
-
-  nav.topNavnavMobile  + #bodyContent #headLineMobile{
-    position: relative;
-    top:  50;
-    z-index: 2;
-  }
-
-
-
-    /**
-  * Style for secondary Navigation
-  */
-  /*
-  .dropdown-content {
-    display:              none;
-    position:             absolute;
-    background-color:     #ffffff;
-  }*/
 }
