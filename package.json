@@ -1,7 +1,7 @@
 {
   "name": "challenge",
   "description": "Exercise for candidates to complete where they will build a responsive nav driven from json",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "authors": [
     "Wes Hatch <whatch@hugeinc.com>",
     "Karl Stanton <kstanton@hugeinc.com>"
@@ -24,9 +24,7 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.12",
     "gulp-minifier": "^0.1.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^2.0.6",
-    "gulp-uglify": "^1.5.4"
+    "gulp-rename": "^1.2.2"
   },
   "main": "app.js",
   "repository": {
