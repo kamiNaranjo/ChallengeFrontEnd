@@ -58,9 +58,6 @@ License
 
 ISC
 
-
-**Free Software, Hell Yeah!**
-
    [challenge]: <https://github.com/kamiNaranjo/ChallengeFrontEnd>
    [git-repo-url]: <https://github.com/kamiNaranjo/ChallengeFrontEnd.git>
    [node.js]: <http://nodejs.org>
