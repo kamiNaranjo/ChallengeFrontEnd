@@ -105,6 +105,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("itemsNav").style.height = "60px";
   document.getElementById("bodyContent").style.marginLeft= "0";
+  document.getElementById("bodyContent").style.width = "100%";
   document.getElementById("itemsNav").style.width = "60px";
   document.body.style.backgroundColor = "#ffffff";
 }
