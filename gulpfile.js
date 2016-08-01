@@ -3,9 +3,43 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var cleanCSS = require('gulp-clean-css');
+var cssmin = require('gulp-cssmin');
 
-gulp.task('scripts', function() {
+/**
+* Task for clean distribution directory
+*/
+var clean = require('gulp-rimraf');
+
+gulp.task('clear', function() {
+    return gulp.src(['../dist/**/*.js'], { read: false })
+           .pipe(clean({ force: true }));
+});
+
+/**
+* Task for compress images
+*/
+var imagemin = require('gulp-imagemin');
+gulp.task('images', ['clear'], function () {
+    return gulp.src(['public/images/*.*'])
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images/'));
+});
+
+
+/**
+* Task for compress css style sheets
+*/
+gulp.task('minify-css', ['imagens'], function () {
+    gulp.src('public/scripts/*.js')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist'));
+});
+
+/**
+* Task for compress javascript files
+*/
+gulp.task('scripts', ['clear'], function() {
     return gulp.src('public/scripts/*.js')
       .pipe(concat('main.js'))
         .pipe(rename({suffix: '.min'}))
@@ -13,11 +47,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('minify-css', function() {
-  return gulp.src('public/styles/*.css')
-    .pipe(cleanCSS())
-    .pipe(gulp.dest('dist'));
-});
-
- // Default Task
+/**
+* Task running by default
+*/
 gulp.task('default', ['scripts', 'minify-css']);
