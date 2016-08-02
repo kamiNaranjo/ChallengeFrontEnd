@@ -30,6 +30,11 @@ gulp.task('clear-html', function() {
            .pipe(clean({ force: true }));
 });
 
+gulp.task('clear-fonts', function() {
+    return gulp.src(['/dist/fonts/*.**'], { read: false })
+           .pipe(clean({ force: true }));
+});
+
 gulp.task('clear',['clear-images','clear-css', 'clear-scripts', 'clear-html'], function() {
     console.log("Finished clear task.");	
 });
@@ -58,11 +63,20 @@ gulp.task('minify-html',['clear-html'], function() {
 /**
 * Task for minimize css style sheets
 */
-gulp.task('minify-css', ['clear-css'], function () {
+gulp.task('minify-css', ['clear-css','minify-fonts'], function () {
     gulp.src('public/styles/*.css')
+	.pipe(concat('main.css'))
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/styles'));
+});
+
+/**
+* Task for add fonts
+*/
+gulp.task('minify-fonts', ['clear-fonts'], function () {
+    gulp.src('public/fonts/*.**')
+        .pipe(gulp.dest('dist/fonts'));
 });
 
 /**
